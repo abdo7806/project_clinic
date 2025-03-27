@@ -1,0 +1,105 @@
+﻿@model IEnumerable<project_clinic.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicalRecord)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.Person.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicalRecordId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.Person.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payment.AmountPaid)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.AppointmentId" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AppointmentId" class="btn btn-warning">Details</a> |
+                    <form asp-action="CancelAppointment" method="post" style="display:inline;"
+                          onsubmit="return confirmCancel();">
+                        <input type="hidden" name="id" value="@item.AppointmentId" />
+                        <button type="submit" class="btn btn-primary" >Cancel Appointment</button>
+                    </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success msg">@TempData["Message"]</div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger msg">@TempData["Error"]</div>
+}
+
+
+@{
+    if (Model.ToList().Count < 10)
+    {
+        int Id = 0;
+        <a asp-action="Index" asp-route-id="@Id">الصفحة الاولى</a>
+        ;
+
+    }
+    else
+    {
+        <a asp-action="Index" asp-route-id="@Model.ToList().Last().AppointmentId">التالي</a>
+        ;
+
+    }
+}
+
+
+<script>
+    function confirmCancel() {
+        return confirm('Are you sure you want to cancel this appointment?');
+        
+    }
+</script>

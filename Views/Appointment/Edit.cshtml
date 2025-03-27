@@ -1,0 +1,125 @@
+﻿@model project_clinic.Models.ViewModel.AppointmentViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AppointmentViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" readonly/>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorId">Choose a doctor</label>
+                <select asp-for="DoctorId" class="form-control">
+                    @foreach (var person in Model.Doctors)
+                    {
+                        <option value="@person.DoctorId">@person.Person.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="DoctorId" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientId" class="control-label"></label>
+                <input asp-for="PatientId" class="form-control" />
+                <span asp-validation-for="PatientId" class="text-danger"></span>
+            </div>
+
+      
+            <div class="form-group">
+                <label asp-for="AppointmentDateTime" class="control-label"></label>
+                <input asp-for="AppointmentDateTime" class="form-control" type="date"/>
+                <span asp-validation-for="AppointmentDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentStatus" class="control-label"></label>
+                <input asp-for="AppointmentStatus" class="form-control" />
+                <span asp-validation-for="AppointmentStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedicalRecordId" class="control-label"></label>
+                <input asp-for="MedicalRecordId" class="form-control" readonly/>
+                <span asp-validation-for="MedicalRecordId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentId" class="control-label"></label>
+                <input asp-for="PaymentId" class="form-control" readonly/>
+                <span asp-validation-for="PaymentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentDate" class="control-label"></label>
+                <input asp-for="PaymentDate" class="form-control" type="date"/>
+                <span asp-validation-for="PaymentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="control-label"></label>
+                <input asp-for="PaymentMethod" class="form-control" />
+                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmountPaid" class="control-label"></label>
+                <input asp-for="AmountPaid" class="form-control" type="number"/>
+                <span asp-validation-for="AmountPaid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalNotes" class="control-label"></label>
+                <input asp-for="AdditionalNotes" class="form-control" />
+                <span asp-validation-for="AdditionalNotes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" type="date"/>
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <select asp-for="Gender" class="form-control">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
