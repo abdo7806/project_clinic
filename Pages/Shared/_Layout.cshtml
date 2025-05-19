@@ -1,179 +1,166 @@
-﻿<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - project_clinic</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/project_clinic.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">project_clinic</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        <li class="nav-item">
-
-                            <a class="btn btn-light action-button" role="button" href="/Person/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Persons</a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="btn btn-light action-button" role="button" href="/Doctor/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Doctors</a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="btn btn-light action-button" role="button" href="/Patient/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Patient</a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="btn btn-light action-button" role="button" href="/MedicalRecord/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Medical Record</a>
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="btn btn-light action-button" role="button" href="/Prescription/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Prescription</a>
-                        </li>
-                        <li class="nav-item">
-
-                            <a class="btn btn-light action-button" role="button" href="/Payment/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Payment</a>
-                        </li>
-                        <li class="nav-item">
-
-                            <a class="btn btn-light action-button" role="button" href="/Appointment/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Appointment</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - project_clinic - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-
-	<script src="~/lib/jquery/dist/jquery.slim.min.js"></script>
-	<script src="~/lib/jquery/dist/jquery.slim.js"></script>
-	<script src="~/lib/jquery/dist/jquery.js"></script>
-
-</body>
-</html>-->
-
-
-
-<!DOCTYPE html>
-<html lang="ar">
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام إدارة العيادة</title>
-    <title>@ViewData["Title"] - project_clinic</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - نظام العيادة الطبية</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/project_clinic.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
         body {
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
+            font-family: 'Tajawal', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 0;
         }
 
         .header {
-            background: #007BFF;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 15px 0;
+            padding: 2rem 0;
             text-align: center;
+            margin-bottom: 1rem;
         }
+
+            .header h1 {
+                font-weight: 700;
+                margin: 0;
+                font-size: 2.2rem;
+            }
+
+        .navbar {
+            background-color: var(--dark-color) !important;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+            .navbar-brand i {
+                margin-left: 8px;
+            }
 
         .nav-link {
             color: white !important;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
         }
 
-        .card {
-            margin: 20px 0;
+        .nav-item {
+            margin: 0 0.2rem;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 20px;
+        .btn-nav {
+            border: 2px solid var(--light-color);
+            color: var(--light-color);
+            border-radius: 50px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 500;
+            margin: 0 0.2rem;
         }
+
+        .container {
+            max-width: 1200px;
+        }
+
+      
+
+        main {
+            min-height: calc(100vh - 300px);
+            padding: 1.5rem 0;
+        }
+
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+
+        /* تعديلات للهواتف باستخدام كلاسات Bootstrap */
+        @* يمكنك استخدام كلاسات مثل d-none d-lg-block للتحكم في العرض *@
     </style>
 </head>
 <body>
-
     <header class="header">
-        <h1>نظام إدارة العيادة</h1>
+        <div class="container">
+            <h1>
+                <i class="fas fa-clinic-medical"></i> نظام إدارة العيادة الطبية
+            </h1>
+        </div>
     </header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">العيادة</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" asp-page="/Index">
+                <i class="fas fa-heartbeat"></i> العيادة
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        <a class="nav-link" asp-page="/Index">
+                            <i class="fas fa-home"></i> الرئيسية
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                    <li class="nav-item">
-
-                        <a class="btn btn-light action-button" role="button" href="/Person/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Persons</a>
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="btn btn-light action-button" role="button" href="/Doctor/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Doctors</a>
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="btn btn-light action-button" role="button" href="/Patient/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Patient</a>
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="btn btn-light action-button" role="button" href="/MedicalRecord/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Medical Record</a>
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="btn btn-light action-button" role="button" href="/Prescription/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Prescription</a>
+                        <a class="nav-link" asp-page="/Privacy">
+                            <i class="fas fa-lock"></i> الخصوصية
+                        </a>
                     </li>
                     <li class="nav-item">
-
-                        <a class="btn btn-light action-button" role="button" href="/Payment/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Payment</a>
+                        <a class="btn btn-nav" href="/Person/Index">
+                            <i class="fas fa-users"></i> الأشخاص
+                        </a>
                     </li>
                     <li class="nav-item">
-
-                        <a class="btn btn-light action-button" role="button" href="/Appointment/Index" style="margin: 5px;width: 116.7px;margin-right: 0px;font-family: Cairo, sans-serif;">Appointment</a>
+                        <a class="btn btn-nav" href="/Doctor/Index">
+                            <i class="fas fa-user-md"></i> الأطباء
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-nav" href="/Patient/Index">
+                            <i class="fas fa-procedures"></i> المرضى
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-nav" href="/MedicalRecord/Index">
+                            <i class="fas fa-file-medical"></i> السجلات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-nav" href="/Prescription/Index">
+                            <i class="fas fa-prescription-bottle-alt"></i> الوصفات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-nav" href="/Payment/Index">
+                            <i class="fas fa-money-bill-wave"></i> المدفوعات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-nav" href="/Appointment/Index">
+                            <i class="fas fa-calendar-check"></i> المواعيد
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -181,26 +168,24 @@
     </nav>
 
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="footer mt-auto py-3 bg-dark text-white">
-        <div class="container">
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-0">
+                &copy; @DateTime.Now.Year - نظام إدارة العيادة الطبية - جميع الحقوق محفوظة
+             
+            </p>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-
-    <script src="~/lib/jquery/dist/jquery.slim.min.js"></script>
-    <script src="~/lib/jquery/dist/jquery.slim.js"></script>
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
-
-    
 </body>
 </html>

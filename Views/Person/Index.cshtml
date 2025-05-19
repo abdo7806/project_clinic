@@ -1,89 +1,89 @@
 ﻿@model IEnumerable<project_clinic.Models.Person>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "People Management";
 }
 
-<h1>Index</h1>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary">People Records</h2>
+        <a asp-action="Create" class="btn btn-success">
+            <i class="fas fa-user-plus"></i> Create New
+        </a>
+    </div>
 
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <form method="get" asp-action="Search" class="row g-3">
+                <div class="col-md-8">
+                    <input type="search" name="SearchItem" class="form-control" placeholder="Search people..." />
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.DateOfBirth)</th>
+                    <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                    <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.Address)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group">
+                                <a asp-action="Edit" asp-route-id="@item.PersonId" class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.PersonId" class="btn btn-sm btn-outline-info">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.PersonId" class="btn btn-sm btn-outline-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
-<form method="get" asp-action="Search">
-    <input type="search" name="SearchItem" class="search-field" />
-    <input type="submit" value="بحث" class="btn-primary" />
-</form>
-
-
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateOfBirth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PersonId"   class="btn btn-primary">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PersonId"class="btn btn-warning">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PersonId" class="btn btn-danger" >Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-
-@{
-    if (Model.ToList().Count < 10)
-    {
-        int Id = 0;
-        <a asp-action="Index" asp-route-id="@Id">الصفحة الاولى</a>
-        ;
-
-    }
-    else
-    {
-        <a asp-action="Index" asp-route-id="@Model.ToList().Last().PersonId">التالي</a>
-        ;
-
-    }
-}
+    <div class="d-flex justify-content-center mt-3">
+        @{
+            if (Model.ToList().Count < 10)
+            {
+                int Id = 0;
+                <a asp-action="Index" asp-route-id="@Id" class="btn btn-outline-secondary me-2">
+                    <i class="fas fa-angle-double-left"></i> First Page
+                </a>
+            }
+            else
+            {
+                <a asp-action="Index" asp-route-id="@Model.ToList().Last().PersonId" class="btn btn-outline-primary">
+                    Next <i class="fas fa-angle-right"></i>
+                </a>
+            }
+        }
+    </div>
+</div>

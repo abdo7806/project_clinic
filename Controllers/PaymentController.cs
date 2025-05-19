@@ -22,7 +22,7 @@ namespace project_clinic.Controllers
         // GET: PaymentController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_PaymentRepositories.Find(id));
         }
 
         // GET: PaymentController/Create
@@ -70,7 +70,7 @@ namespace project_clinic.Controllers
         // GET: PaymentController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(_PaymentRepositories.Find(id));
         }
 
         // POST: PaymentController/Delete/5
@@ -80,6 +80,7 @@ namespace project_clinic.Controllers
         {
             try
             {
+                //_PaymentRepositories.Find(id)
                 return RedirectToAction(nameof(Index));
             }
             catch
